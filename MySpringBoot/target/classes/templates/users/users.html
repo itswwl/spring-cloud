@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>测试</title>
+</head>
+<body>
+
+<table>
+
+<tr th:each="u:${users}">
+	<td th:text="${u.id}"></td>
+	<td th:text="${u.name}"></td>
+	<td th:text="${u.pwd}"></td>
+</tr>
+</table>
+</body>
+</html>
