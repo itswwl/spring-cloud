@@ -1,41 +1,35 @@
 package com.itswwl.practice.controller.impl;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.itswwl.practice.controller.ISpringCloudController;
-import com.itswwl.practice.entry.SpringCloud;
 import com.itswwl.practice.service.ISpringCloudService;
 
-@RestController
+@Controller
 @RequestMapping("/springcloud")
 public class SpringCloudControllerImpl implements ISpringCloudController {
 
 	
 	@Autowired
+//	@Qualifier("SpringCloudService")
 	private ISpringCloudService springCloudService;
 	
 	@Override
-	@RequestMapping("/findById/{id}")
-	public SpringCloud findById(@PathVariable("id")Long id) {
-		return springCloudService.findById(id);
+	@RequestMapping("/searchAll")
+	public String searchAll(Model model) {
+		model.addAttribute("springcloud", springCloudService.searchAll());
+		return "springcloud";
 	}
 
 	@Override
 	@RequestMapping("/test")
 	public String test() {
 		return "测试";
-	}
-
-	@Override
-	@RequestMapping("/search")
-	public List<SpringCloud> search() {
-		
-		return springCloudService.search();
 	}
 
 }
