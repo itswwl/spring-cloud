@@ -21,7 +21,7 @@ public class SpringCloudServiceImpl implements ISpringCloudService {
 	final String SERVICE_NAME = "sc-simple-service";
 
 	@SuppressWarnings("unchecked")
-//	@HystrixCommand(fallbackMethod = "fallbackSearchAll")
+	@HystrixCommand(fallbackMethod = "fallbackSearchAll")
 	public List<SpringCloud> searchAll() {
 		try {
 			return restTemplate.getForObject("http://" + SERVICE_NAME + "/springcloud/search",
