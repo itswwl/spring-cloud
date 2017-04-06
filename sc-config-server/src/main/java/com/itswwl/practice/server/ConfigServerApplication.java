@@ -7,6 +7,17 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.config.server.EnableConfigServer;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * @author Administrator
+ *
+ *
+ *   参考博客
+ *   http://www.cnblogs.com/skyblog/category/774535.html
+ *   
+ *   github
+ *   https://github.com/zpng/spring-cloud-7simple
+ *
+ */
 @SpringBootApplication
 @Configuration
 @EnableAutoConfiguration

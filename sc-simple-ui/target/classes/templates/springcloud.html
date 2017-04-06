@@ -9,6 +9,13 @@
 <ul th:each="sc:${springcloud}">
 	<li th:text="${sc.springCloud}"></li>
 </ul>
-
+<table>
+	<tr th:each="sc:${springcloud}">
+		<td th:text="${sc.id}" ></td>
+		<td th:text="${sc.springCloud}"></td>
+		<td th:text="${sc.userName}"></td>
+		<td th:text="${sc.passWord}"></td>
+	</tr>
+</table>
 </body>
 </html>

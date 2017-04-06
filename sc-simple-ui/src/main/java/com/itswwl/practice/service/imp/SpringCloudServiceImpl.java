@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import com.itswwl.practice.entry.SpringCloud;
@@ -20,10 +21,17 @@ public class SpringCloudServiceImpl implements ISpringCloudService {
 	final String SERVICE_NAME = "sc-simple-service";
 
 	@SuppressWarnings("unchecked")
-	@HystrixCommand(fallbackMethod = "fallbackSearchAll")
+//	@HystrixCommand(fallbackMethod = "fallbackSearchAll")
 	public List<SpringCloud> searchAll() {
-		return restTemplate.getForObject("http://" + SERVICE_NAME + "/springcloud/search",
-				List.class);
+		try {
+			return restTemplate.getForObject("http://" + SERVICE_NAME + "/springcloud/search",
+					List.class);
+//			return restTemplate.getForObject("http://localhost:8081/springcloud/search",
+//					List.class);
+		} catch (RestClientException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	@SuppressWarnings("unused")
