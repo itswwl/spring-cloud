@@ -13,6 +13,10 @@ import org.springframework.context.annotation.Configuration;
  *
  *   参考博客
  *   http://www.cnblogs.com/skyblog/category/774535.html
+ *
+ *
+ *   SpringCloud分布式开发五大神兽
+ *   http://blog.csdn.net/u011686226/article/details/54091325
  *   
  *   github
  *   https://github.com/zpng/spring-cloud-7simple
